@@ -1,0 +1,173 @@
+﻿<AML>
+ <Item type="Form" id="FD071947E7B44B03A90FE747BD29F0B1" action="add">
+  <category_form>0</category_form>
+  <height>200</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>450</width>
+  <name>Story_UploadFile_Document</name>
+  <Relationships>
+   <Item type="Body" id="FB1CF0DD215C45309333640B1CB28053" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_UploadFile_Document" type="Form">FD071947E7B44B03A90FE747BD29F0B1</source_id>
+    <Relationships>
+     <Item type="Field" id="760FFDA8256E4FCEABEAED78FCEDA442" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Cancel</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="FB1CF0DD215C45309333640B1CB28053" type="Body">FB1CF0DD215C45309333640B1CB28053</source_id>
+      <tab_stop>1</tab_stop>
+      <x>220</x>
+      <y>100</y>
+      <name>cancel</name>
+      <Relationships>
+       <Item type="Field Event" id="48803E66EDDD47CB9B22410E3C79EFC7" action="add">
+        <field_event>onclick</field_event>
+        <related_id keyed_name="Story_UploadFile_Document_Cancel" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>Story_UploadFile_Document_Cancel</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="cancel" type="Field">760FFDA8256E4FCEABEAED78FCEDA442</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Field" id="D2117AC18B7F48C4A0BBF1D48001BDD1" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Upload</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="FB1CF0DD215C45309333640B1CB28053" type="Body">FB1CF0DD215C45309333640B1CB28053</source_id>
+      <tab_stop>1</tab_stop>
+      <x>120</x>
+      <y>100</y>
+      <name>create</name>
+      <Relationships>
+       <Item type="Field Event" id="19A56F426AF8490C98C1C93F8C4D9A88" action="add">
+        <field_event>onclick</field_event>
+        <related_id keyed_name="Story_UploadFile_Document_Create" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>Story_UploadFile_Document_Create</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="create" type="Field">D2117AC18B7F48C4A0BBF1D48001BDD1</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Field" id="763C0FD795224546848218DB74CCA30F" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <html_code><![CDATA[<input align="absmiddle" style="display: inline; cursor: pointer;" class="sys_f_input_image sys_f_input_image_ie" onclick="uploadFile.Select()" type="image" src="../images/Ellipsis.svg" border="0" unselectable="on"></input>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="FB1CF0DD215C45309333640B1CB28053" type="Body">FB1CF0DD215C45309333640B1CB28053</source_id>
+      <tab_stop>1</tab_stop>
+      <x>370</x>
+      <y>50</y>
+      <name>ellipse</name>
+     </Item>
+     <Item type="Field" id="10320788A03D4F90AC3581AC5990F869" action="add">
+      <border_width>0</border_width>
+      <display_length>250</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>1</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Select File</label>
+      <label_position>left</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="FB1CF0DD215C45309333640B1CB28053" type="Body">FB1CF0DD215C45309333640B1CB28053</source_id>
+      <tab_stop>1</tab_stop>
+      <x>52</x>
+      <y>50</y>
+      <name>filename</name>
+     </Item>
+     <Item type="Field" id="9A9889ADA7F24CA6AE47496AA5A380A2" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>1</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Document Number</label>
+      <label_position>left</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="FB1CF0DD215C45309333640B1CB28053" type="Body">FB1CF0DD215C45309333640B1CB28053</source_id>
+      <tab_stop>1</tab_stop>
+      <x>10</x>
+      <y>10</y>
+      <name>itemnumber</name>
+     </Item>
+     <Item type="Field" id="DE51DD12E8334A139CA846081037713B" action="add">
+      <border_width>0</border_width>
+      <display_length>50</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Revision</label>
+      <label_position>left</label_position>
+      <list_no_blank>1</list_no_blank>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="FB1CF0DD215C45309333640B1CB28053" type="Body">FB1CF0DD215C45309333640B1CB28053</source_id>
+      <tab_stop>1</tab_stop>
+      <x>240</x>
+      <y>10</y>
+      <name>revision</name>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Form Event" id="7D2F37B553964F108D5CC2F629151B40" action="add">
+    <form_event>onload</form_event>
+    <related_id keyed_name="Story_UploadFile_Document_API" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Story_UploadFile_Document_API</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_UploadFile_Document" type="Form">FD071947E7B44B03A90FE747BD29F0B1</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

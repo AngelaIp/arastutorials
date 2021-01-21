@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="5B149977EF954F02BC744129BA6A3965" action="add">
+  <item_query />
+  <label xml:lang="en">Upload File to Document(s)</label>
+  <location>client</location>
+  <method keyed_name="Story_UploadFile_Document_Form" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>Story_UploadFile_Document_Form</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>itemtype</type>
+  <name>Story_UploadFile_Document_Action</name>
+ </Item>
+</AML>

@@ -1,0 +1,21 @@
+﻿<AML>
+ <Item type="Item Action" id="31346047B6014BF7A306B7E8ADB86E1B" action="add">
+  <related_id keyed_name="Story_UploadFile_Document_Action" type="Action">
+   <Item type="Action" id="5B149977EF954F02BC744129BA6A3965" action="add">
+    <item_query />
+    <label xml:lang="en">Upload File to Document(s)</label>
+    <location>client</location>
+    <method keyed_name="Story_UploadFile_Document_Form" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Story_UploadFile_Document_Form</name>
+     </Item>
+    </method>
+    <target>none</target>
+    <type>itemtype</type>
+    <name>Story_UploadFile_Document_Action</name>
+   </Item>
+  </related_id>
+  <sort_order>1280</sort_order>
+  <source_id keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</source_id>
+ </Item>
+</AML>

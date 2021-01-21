@@ -1,0 +1,93 @@
+﻿<AML>
+ <Item type="Method" id="7E87A80BA7124F96B7B65DE9734F64B6" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var selectedConfig;
+var selectedItem;
+UploadFiles = function() 
+{
+	var tmpDialogArguments = window.frameElement ? window.frameElement.dialogArguments : null;
+	tmpDialogArguments = tmpDialogArguments || window.dialogArguments || parent.dialogArguments || parent.parent.dialogArguments;
+	var dynamicItems = tmpDialogArguments.dropdown;
+	var itemTypeDropdownComponent = getFieldComponentByName("revision");
+	if (dynamicItems.length !== 0) {
+		itemTypeDropdownComponent.component.setState({
+			list: dynamicItems,
+			value: dynamicItems[0].value
+    });
+	} else {
+    aras.AlertError("Failed to Load the avaliable Relationship drop down menu");
+    parent.close();
+	}
+	selectedConfig = document.thisItem.getAttribute('config_id');
+	selectedItem = document.thisItem.getAttribute('item_number');
+    document.getElementsByName("itemnumber")[1].value = selectedItem;
+};
+UploadFiles.prototype.Cancel = function() 
+{
+    parent.args.dialog.close();
+};
+
+
+UploadFiles.prototype.Select = function() 
+{
+	top.aras.vault.SelectFile().then(setPathValue);
+	function setPathValue(file) 
+	{
+		if (!file) 
+		{
+			return;
+		}
+		var name = document.querySelector('input[name="filename"]');
+		name.value = file.name;
+		name.tag = file;
+	}
+};
+UploadFiles.prototype.Create = function() 
+{
+    var docId = getFieldComponentByName("revision").getValue();
+	var fileObject = document.querySelector('input[name="filename"]').tag;
+	if (!fileObject) 
+	{
+		parent.args.dialog.close();
+		return;
+	}
+    if(aras.confirm("Are you sure you want to add the selected file item to Document "+selectedItem+" Revision "+docId+" ?"))
+	{
+	    var fileItem = aras.newItem('File', fileObject);
+	    var fileNode = aras.sendFilesWithVaultApplet(fileItem);
+	    var result = aras.newIOMItem('', '');
+	    result.loadAML(fileNode.xml);
+	    if (result.isError()) 
+	    {
+	        aras.AlertError(result.getErrorString());
+	    }
+	    else 
+	    {
+	        var getCorrectItem = aras.newIOMItem("Document", "get");
+	        getCorrectItem.setAttribute("maxRecords","1");
+	        getCorrectItem.setAttribute("orderBy","generation DESC");
+	        getCorrectItem.setAttribute("select","id");
+            getCorrectItem.setProperty("config_id",selectedConfig);
+            getCorrectItem.setProperty("major_rev",docId);
+            getCorrectItem.setProperty("generation","0");
+            getCorrectItem.setPropertyCondition("generation","gt");
+		    getCorrectItem = getCorrectItem.apply();
+		    var fileID = result.getID();
+            var addItem = aras.newIOMItem("Document File", "add");
+            addItem.setProperty("related_id",fileID);
+            addItem.setProperty("source_id",getCorrectItem.getID());
+		    addItem = addItem.apply();
+		    if (addItem.isError()) 
+	        {
+                aras.AlertError(selectedItem+" Revision: "+docId+" Failed: " +addItem.getErrorString());
+	        }
+            aras.AlertSuccess(selectedItem+" Revision: "+docId+": Document File Relationship updated Successfully.");
+	    }
+	}
+    parent.args.dialog.close();
+};
+uploadFile = new UploadFiles();]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_UploadFile_Document_API</name>
+ </Item>
+</AML>

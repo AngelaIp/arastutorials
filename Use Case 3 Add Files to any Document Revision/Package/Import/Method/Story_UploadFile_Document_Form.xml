@@ -1,0 +1,69 @@
+﻿<AML>
+ <Item type="Method" id="7ACC0632CB6D4978B6E12C7CF5426D20" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var wnd = aras.getMainWindow();
+var topWnd = aras.getMostTopWindowWithAras(window);
+wnd = wnd === topWnd ? wnd.main : topWnd;
+var selectedId;
+var itemType;
+if (wnd.parent.main) {
+	itemType = wnd.parent.main.work.itemTypeName;
+	selectedId = wnd.parent.main.work.grid.getSelectedItemIds();
+} else {
+	itemType = wnd.itemTypeName;
+	selectedId = [wnd.itemID];
+}
+if (selectedId.length < 1) {
+	return;
+}
+if (selectedId.length > 1) {
+	return aras.AlertError("This action can be used on only one document item. Please Select one item.");
+}
+itemRevisions = [];
+itemRevisionsUnique = [];
+var getDocument = aras.newIOMItem(itemType, "get");
+getDocument.setAttribute("select", "item_number,config_id");
+getDocument.setID(selectedId);
+getDocument = getDocument.apply();
+var getDocumentGeneration = aras.newIOMItem(itemType, "get");
+getDocumentGeneration.setProperty("config_id", getDocument.getProperty("config_id"));
+getDocumentGeneration.setAttribute("select", "id,major_rev");
+getDocumentGeneration.setProperty("generation", "0");
+getDocumentGeneration.setPropertyCondition("generation", "gt");
+getDocumentGeneration = getDocumentGeneration.apply();
+for (var i = 0; i < getDocumentGeneration.getItemCount(); i++) {
+    getItem = getDocumentGeneration.getItemByIndex(i);
+    itemName = getItem.getProperty("major_rev");
+    if(itemRevisions.indexOf(itemName) == -1)
+    {
+        itemRevisions.push(itemName);
+    }
+}
+for (var j = 0; j < itemRevisions.length; j++) 
+{
+  itemRevisionsUnique.push({label: itemRevisions[j], value: itemRevisions[j]});
+} 
+var formNd = aras.getItemByName('Form', 'Story_UploadFile_Document', 0);
+var param = {};
+param.title = 'Upload File to Documents';
+param.formId = formNd.getAttribute('id');
+param.aras = aras;
+param.isEditMode = true;
+param.dropdown = itemRevisionsUnique;
+param.item = aras.newIOMItem(itemType, '');
+param.item.setAttribute('config_id', getDocument.getProperty("config_id"));
+param.item.setAttribute('item_number', getDocument.getProperty("item_number"));
+
+var width = top.aras.getItemProperty(formNd, 'width');
+var height = top.aras.getItemProperty(formNd, 'height');
+
+var options = {
+	dialogWidth: width,
+	dialogHeight: height,
+	resizable: true
+};
+aras.modalDialogHelper.show('DefaultPopup', wnd, param, options, 'ShowFormAsADialog.html');]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_UploadFile_Document_Form</name>
+ </Item>
+</AML>
