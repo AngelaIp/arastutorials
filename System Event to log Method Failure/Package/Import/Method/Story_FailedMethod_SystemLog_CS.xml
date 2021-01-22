@@ -1,0 +1,14 @@
+﻿<AML>
+ <Item type="Method" id="E3DA8E4D55A54200B6D37142DBE3F63C" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Innovator inn = this.getInnovator();
+Item addSystemLogs = inn.newItem("Method", "Story_FailedMethod_SystemLog");
+addSystemLogs.setProperty("eventType","OnAfterAdd");
+addSystemLogs.setProperty("methodName","Story_FailedMethod_SystemLog_CS");
+addSystemLogs.setProperty("errorMessage","Method Failed: Story_FailedMethod_SystemLog_CS: Throwing Error from C# Method");
+addSystemLogs = addSystemLogs.apply();
+return inn.newError("Throwing error after creating System Log Record from C# Method");]]></method_code>
+  <method_type>C#</method_type>
+  <name>Story_FailedMethod_SystemLog_CS</name>
+ </Item>
+</AML>

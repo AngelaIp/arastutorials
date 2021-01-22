@@ -1,0 +1,135 @@
+﻿<AML>
+ <Item type="Form" id="AE42742735A34B64A3483356A0F5B823" action="add">
+  <category_form>0</category_form>
+  <height>290</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>600</width>
+  <name>Story_AddRelationships_Form</name>
+  <Relationships>
+   <Item type="Body" id="0E96191940844E75BE698562DF2D698B" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_AddRelationships_Form" type="Form">AE42742735A34B64A3483356A0F5B823</source_id>
+    <Relationships>
+     <Item type="Field" id="8512D2DC073F4E87BE3278A38F2DF997" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Add Relationship</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="0E96191940844E75BE698562DF2D698B" type="Body">0E96191940844E75BE698562DF2D698B</source_id>
+      <tab_stop>1</tab_stop>
+      <x>185</x>
+      <y>180</y>
+      <name>addrelationship</name>
+      <Relationships>
+       <Item type="Field Event" id="3127A29402504A4FB19AE835C0AA54D7" action="add">
+        <field_event>onclick</field_event>
+        <related_id keyed_name="Story_AddRelationships_Change" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>Story_AddRelationships_Change</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="addrelationship" type="Field">8512D2DC073F4E87BE3278A38F2DF997</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Field" id="3141ECEC95944CE298DC9A8E04C88411" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Cancel</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="0E96191940844E75BE698562DF2D698B" type="Body">0E96191940844E75BE698562DF2D698B</source_id>
+      <tab_stop>1</tab_stop>
+      <x>325</x>
+      <y>180</y>
+      <name>Cancel</name>
+      <Relationships>
+       <Item type="Field Event" id="463ECC89484F454680A06ABAE3B3E18D" action="add">
+        <field_event>onclick</field_event>
+        <related_id keyed_name="Story_AddRelationships_Cancel" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>Story_AddRelationships_Cancel</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Cancel" type="Field">3141ECEC95944CE298DC9A8E04C88411</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Field" id="93FFC08CFBC744C7BB385BE993347524" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>1</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Selected Parent Items</label>
+      <label_position>left</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="0E96191940844E75BE698562DF2D698B" type="Body">0E96191940844E75BE698562DF2D698B</source_id>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>195</textarea_cols>
+      <textarea_rows>60</textarea_rows>
+      <x>85</x>
+      <y>90</y>
+      <name>parentitem</name>
+     </Item>
+     <Item type="Field" id="F43E0575DD05421F81711A0727ADA2AB" action="add">
+      <border_width>0</border_width>
+      <display_length>200</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Relationship Name</label>
+      <label_position>left</label_position>
+      <list_no_blank>1</list_no_blank>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="0E96191940844E75BE698562DF2D698B" type="Body">0E96191940844E75BE698562DF2D698B</source_id>
+      <tab_stop>1</tab_stop>
+      <text_align>right</text_align>
+      <x>100</x>
+      <y>40</y>
+      <name>relationship</name>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Form Event" id="0C53B0E577D148428D2BAB91D84FDBA8" action="add">
+    <form_event>onload</form_event>
+    <related_id keyed_name="Story_AddRelationships_API" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Story_AddRelationships_API</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_AddRelationships_Form" type="Form">AE42742735A34B64A3483356A0F5B823</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

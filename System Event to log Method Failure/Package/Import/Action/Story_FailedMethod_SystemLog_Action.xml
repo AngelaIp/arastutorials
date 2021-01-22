@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="3B8E4FEB60B64294B27FFF8A01FEA300" action="add">
+  <item_query />
+  <label xml:lang="en">Create System Logs</label>
+  <location>client</location>
+  <method keyed_name="Story_FailedMethod_SystemLog_JS" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>Story_FailedMethod_SystemLog_JS</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>generic</type>
+  <name>Story_FailedMethod_SystemLog_Action</name>
+ </Item>
+</AML>

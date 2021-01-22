@@ -1,0 +1,8 @@
+﻿<AML>
+ <Item type="Method" id="FBA5F12C3F96467A838E1F40C96E335B" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[parent.args.dialog.close();]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_Change_Items_Close</name>
+ </Item>
+</AML>

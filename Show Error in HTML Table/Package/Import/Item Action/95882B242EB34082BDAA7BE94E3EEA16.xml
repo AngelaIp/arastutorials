@@ -1,0 +1,21 @@
+﻿<AML>
+ <Item type="Item Action" id="95882B242EB34082BDAA7BE94E3EEA16" action="add">
+  <related_id keyed_name="Story_ShowError_Action" type="Action">
+   <Item type="Action" id="3550C8D90AA0409285EB5F37D5445B57" action="add">
+    <item_query />
+    <label xml:lang="en">Update Description</label>
+    <location>client</location>
+    <method keyed_name="Story_ShowError_OpenForm" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Story_ShowError_OpenForm</name>
+     </Item>
+    </method>
+    <target>none</target>
+    <type>itemtype</type>
+    <name>Story_ShowError_Action</name>
+   </Item>
+  </related_id>
+  <sort_order>1792</sort_order>
+  <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+ </Item>
+</AML>

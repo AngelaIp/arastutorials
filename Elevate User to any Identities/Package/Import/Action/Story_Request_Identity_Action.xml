@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="35E59216235F4A76BBE871C1AD72B22D" action="add">
+  <item_query />
+  <label xml:lang="en">Elevate to Identity</label>
+  <location>client</location>
+  <method keyed_name="Story_Request_Identity_OpenForm" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>Story_Request_Identity_OpenForm</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>generic</type>
+  <name>Story_Request_Identity_Action</name>
+ </Item>
+</AML>

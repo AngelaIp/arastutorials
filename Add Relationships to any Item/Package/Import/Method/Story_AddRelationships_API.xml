@@ -1,0 +1,115 @@
+﻿<AML>
+ <Item type="Method" id="B0CF1254BE004956A582D14446B29DA8" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Relationships = function() {
+	var tmpDialogArguments = window.frameElement ? window.frameElement.dialogArguments : null;
+	tmpDialogArguments = tmpDialogArguments || window.dialogArguments || parent.dialogArguments || parent.parent.dialogArguments;
+	var dynamicItems = tmpDialogArguments.dropdown;
+	var itemTypeDropdownComponent = getFieldComponentByName("relationship");
+	if (dynamicItems.length !== 0) {
+		itemTypeDropdownComponent.component.setState({
+			list: dynamicItems,
+			value: dynamicItems[0].value
+    });
+	} else {
+    aras.AlertError("Failed to Load the avaliable Relationship drop down menu");
+    parent.close();
+	}
+	itemtypeNames = [];
+	var selectedIdList = document.thisItem.getAttribute('idlist');
+	var selectedType = document.thisItem.getAttribute('type');
+	var getParts = aras.newIOMItem(selectedType, 'get');
+    getParts.setAttribute("idlist", selectedIdList);
+    getParts.setAttribute("select", "item_number");
+    getParts = getParts.apply();
+    if(getParts.isError()) {
+        aras.AlertError("Failed to get the selected items");
+    }
+    for(var i = 0; i < getParts.getItemCount(); i++) {
+        var getItems = getParts.getItemByIndex(i);
+        var names = getItems.getProperty("item_number");
+        itemtypeNames.push(names);
+    }
+    document.getElementsByName("parentitem")[1].value = itemtypeNames.join(",");
+    
+};
+Relationships.prototype.Close = function() {
+    var topWnd = aras.getMostTopWindowWithAras(window);
+	if (topWnd.main) {
+	    topWnd.main.work.searchContainer.runSearch();
+	} 
+	else if (this.newParent) {
+		aras.uiReShowItemEx(this.itemIds[0], this.newParent.node);
+	}
+	parent.args.dialog.close();
+};
+Relationships.prototype.Change = function() {
+this.relationshipsField = getFieldComponentByName('relationship');
+this.relType = this.relationshipsField.getValue();
+var relationshipType = aras.newIOMItem("RelationshipType", 'get');
+relationshipType.setAttribute("select", "name,related_id(id)");
+relationshipType.setAttribute("id", this.relType);
+relationshipType = relationshipType.apply();
+var relationshipName = relationshipType.getProperty("name");
+var relatedItemType = aras.getItemPropertyAttribute(relationshipType.node, 'related_id', 'keyed_name');
+var wnd = top.aras.getMainWindow();
+wnd = wnd === top ? wnd.main : top;
+var innerHeight = (wnd.innerHeight < 300) ? 300 : wnd.innerHeight - 300;
+var innerWidth = (wnd.innerWidth > 800) ? 800 : wnd.innerWidth;
+var params = { 
+	aras: aras,
+	multiselect: false,
+	itemtypeID: aras.getItemTypeId(relatedItemType),
+	dialogWidth: innerWidth,
+	dialogHeight: innerHeight,
+	help: 0,
+	resizable: 1,
+	content: 'searchDialog.html'
+};
+(wnd.main || wnd).ArasModules.Dialog.show("iframe", params).promise.then(function (selected) {
+    if(selected.itemID !== "") {
+        if(aras.confirm("Are you sure you want to add the selected Child item to Parent item ?"))
+        {
+            result = [];
+            var relatedItem = selected.itemID;
+            var idlists = document.thisItem.getAttribute('idlist').split(',');
+            for(var i = 0; i < idlists.length; i++) {
+                var itemNumber = aras.newIOMItem(document.thisItem.getAttribute('type'), 'get');
+                itemNumber.setAttribute("id",idlists[i]);
+                itemNumber.setAttribute("select","id,item_number");
+                itemNumber = itemNumber.apply();
+                var itemName = itemNumber.getProperty("item_number");
+                var getRelationship = aras.newIOMItem(relationshipName, 'get');
+                getRelationship.setProperty("source_id", idlists[i]);
+                getRelationship.setProperty("related_id", relatedItem);
+                getRelationship = getRelationship.apply();
+                if(getRelationship.isError()) {
+                    var addRelationship = aras.newIOMItem(relationshipName, 'create');
+                    addRelationship.setProperty("source_id", idlists[i]);
+                    addRelationship.setProperty("related_id", relatedItem);
+                    addRelationship = addRelationship.apply();
+                    if(addRelationship.isError()) {
+                        result.push(itemName+": Selected "+relationshipName+" relationship failed to add for this item \n");
+                    }
+                    result.push(itemName+": Selected "+relationshipName+" relationship added successfully for this item \n");
+                }
+                else {
+                    result.push(itemName+": Selected "+relationshipName+" relationship already exist for this item \n");
+                }
+            }
+            var title = 'Add Relationship Results';
+    	    var evalMethodParams = [title, result.join('')];
+    	    aras.evalMethod('Story_AddRelationships_Dialog', undefined, evalMethodParams);
+            parent.args.dialog.close();
+    	}
+    }
+	else {
+        parent.args.dialog.close();   
+	}
+});
+};
+API = new Relationships();]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_AddRelationships_API</name>
+ </Item>
+</AML>

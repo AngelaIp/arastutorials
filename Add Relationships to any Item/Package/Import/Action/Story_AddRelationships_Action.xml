@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="44ACBF8FE49340C4BB969434EBE702F7" action="add">
+  <item_query />
+  <label xml:lang="en">Add Relationships</label>
+  <location>client</location>
+  <method keyed_name="Story_AddRelationships_OpenForm" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>Story_AddRelationships_OpenForm</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>itemtype</type>
+  <name>Story_AddRelationships_Action</name>
+ </Item>
+</AML>

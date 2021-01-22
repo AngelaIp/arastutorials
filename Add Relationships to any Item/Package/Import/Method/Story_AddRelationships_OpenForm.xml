@@ -1,0 +1,58 @@
+﻿<AML>
+ <Item type="Method" id="44E15A51C515404FBC924F3AEBB97501" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var wnd = aras.getMainWindow();
+var topWnd = aras.getMostTopWindowWithAras(window);
+wnd = wnd === topWnd ? wnd.main : topWnd;
+var selectedIds;
+var itemType;
+var itemTypeId;
+if (wnd.parent.main) {
+	itemType = wnd.parent.main.work.itemTypeName;
+	itemTypeId = wnd.parent.main.work.itemTypeID;
+	selectedIds = wnd.parent.main.work.grid.getSelectedItemIds();
+} else {
+	itemType = wnd.itemTypeName;
+	itemTypeId = wnd.itemTypeID;
+	selectedIds = [wnd.itemID];
+}
+if (selectedIds.length < 1) {
+	return;
+}
+
+itemtypeNames = [];
+var getRelationship = aras.newIOMItem("RelationshipType", "get");
+getRelationship.setAttribute("select", "name,id");
+getRelationship.setProperty("source_id", itemTypeId);
+getRelationship.setProperty("related_id", "");
+getRelationship.setPropertyCondition("related_id", "is not null");
+getRelationship = getRelationship.apply();
+for (var i = 0; i < getRelationship.getItemCount(); i++) {
+    getItem = getRelationship.getItemByIndex(i);
+    itemName = getItem.getProperty("name","");
+    id = getItem.getProperty("id","");
+    itemtypeNames.push({label: itemName, value: id});
+}
+var formNd = aras.getItemByName('Form', 'Story_AddRelationships_Form', 0);
+var param = {};
+param.title = 'Add Relationships';
+param.formId = formNd.getAttribute('id');
+param.aras = aras;
+param.isEditMode = true;
+param.dropdown = itemtypeNames;
+param.item = aras.newIOMItem(itemType, '');
+param.item.setAttribute('idlist', selectedIds);
+
+var width = top.aras.getItemProperty(formNd, 'width');
+var height = top.aras.getItemProperty(formNd, 'height');
+
+var options = {
+	dialogWidth: width,
+	dialogHeight: height,
+	resizable: true
+};
+aras.modalDialogHelper.show('DefaultPopup', wnd, param, options, 'ShowFormAsADialog.html');]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_AddRelationships_OpenForm</name>
+ </Item>
+</AML>

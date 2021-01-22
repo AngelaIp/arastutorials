@@ -1,0 +1,129 @@
+﻿<AML>
+ <Item type="Workflow Map" id="1BDCDFDA2C474C9B8535853D458BA275" action="add">
+  <description xml:lang="en">Story_Change_Items_Workflow3</description>
+  <label xml:lang="en">Story Change Items Workflow 3</label>
+  <node_bg_color>       </node_bg_color>
+  <node_label1_color>       </node_label1_color>
+  <node_label1_font />
+  <node_label2_color>       </node_label2_color>
+  <node_label2_font />
+  <node_name_color>       </node_name_color>
+  <node_name_font />
+  <node_size />
+  <process_owner keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</process_owner>
+  <transition_line_color>       </transition_line_color>
+  <transition_name_color>       </transition_name_color>
+  <transition_name_font />
+  <name>Story_Change_Items_Workflow3</name>
+  <Relationships>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Released" type="Activity Template">
+     <Item type="Activity Template" id="D291142D52BB48279D3CF073ABBE6A1F" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/Delete.svg</icon>
+      <is_auto>1</is_auto>
+      <is_end>1</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Workflow End</message>
+      <priority>1</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>200</x>
+      <y>20</y>
+      <name>Released</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_Change_Items_Workflow3" type="Workflow Map">1BDCDFDA2C474C9B8535853D458BA275</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Start" type="Activity Template">
+     <Item type="Activity Template" id="81D33358B55444CC946A7747994207DC" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/WorkflowStart.svg</icon>
+      <is_auto>1</is_auto>
+      <is_end>0</is_end>
+      <is_start>1</is_start>
+      <message xml:lang="en">Workflow Start</message>
+      <priority>2</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>20</x>
+      <y>20</y>
+      <name>Start</name>
+      <Relationships>
+       <Item type="Workflow Map Path" id="49226AC78FA6489396FCA933B30D9C7C" action="add">
+        <authentication>none</authentication>
+        <is_default>1</is_default>
+        <is_override>0</is_override>
+        <name>Go</name>
+        <related_id>C4F5E396ABDD4A6289E92CCDD2DC4A3F</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Start" type="Activity Template">81D33358B55444CC946A7747994207DC</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Story_Change_Items_Workflow3" type="Workflow Map">1BDCDFDA2C474C9B8535853D458BA275</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="WIP" type="Activity Template">
+     <Item type="Activity Template" id="C4F5E396ABDD4A6289E92CCDD2DC4A3F" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>1</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>113</x>
+      <y>20</y>
+      <name>WIP</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="077D800004A249739451B38A877B20DC" action="add">
+        <related_id keyed_name="Owner" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Owner</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="WIP" type="Activity Template">C4F5E396ABDD4A6289E92CCDD2DC4A3F</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Workflow Map Path" id="660FAAB67C3C4554ABA76BE3651A2625" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>To Release</name>
+        <related_id>D291142D52BB48279D3CF073ABBE6A1F</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="WIP" type="Activity Template">C4F5E396ABDD4A6289E92CCDD2DC4A3F</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Story_Change_Items_Workflow3" type="Workflow Map">1BDCDFDA2C474C9B8535853D458BA275</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

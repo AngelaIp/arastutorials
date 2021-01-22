@@ -1,0 +1,29 @@
+﻿<AML>
+ <Item type="Method" id="5BEE25B8BB53465D8CA828F5FAB5A430" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var title = (inArgs !== undefined && inArgs.length > 0) ? inArgs[0] : "Result";
+var message_string = (inArgs !== undefined && inArgs.length > 1) ? inArgs[1] : "";
+var param = new Object();
+param.title  = title;
+param.aras   = top.aras;
+param.message_string = message_string;
+
+var form = top.aras.getItemByName("Form", "Story_AddRelationships_DialForm", "width,height");
+  
+var width  = top.aras.getItemProperty(form, "width");
+var height = top.aras.getItemProperty(form, "height");
+if (!width) { width  = 600; }
+if (!height) { height = 250; }
+    
+param.formId = form.getAttribute("id");
+var options = {
+  dialogWidth: width,
+  dialogHeight: height
+};
+var wnd = top.aras.getMainWindow();
+wnd = wnd === top ? wnd.main : top;
+res = top.aras.modalDialogHelper.show('DefaultPopup', wnd, param, options, 'ShowFormAsADialog.html', null);]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_AddRelationships_Dialog</name>
+ </Item>
+</AML>

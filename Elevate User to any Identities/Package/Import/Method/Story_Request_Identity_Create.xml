@@ -1,0 +1,25 @@
+﻿<AML>
+ <Item type="Method" id="96C906DDF52C4420BCDA8DFCFC3F36A0" action="add">
+  <comments />
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var identityId = getFieldComponentByName("identitylist").getValue();
+var memberships = aras.newIOMItem('Method', 'Story_Request_Identity_CreateSer');
+memberships.setProperty("identityId",identityId);
+memberships = memberships.apply();
+var result = '';
+if (memberships.isError()) 
+{
+	result = memberships.getErrorString();
+	aras.AlertError(result);
+	parent.dialogArguments.dialog.close("OK");
+} 
+else 
+{
+	result = memberships.getResult();
+	aras.AlertSuccess(result);
+	parent.dialogArguments.dialog.close("OK");
+}]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_Request_Identity_Create</name>
+ </Item>
+</AML>

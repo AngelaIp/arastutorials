@@ -1,0 +1,68 @@
+﻿<AML>
+ <Item type="Method" id="1642752C48BA492C9EF8F65874AF5CCE" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var inn = this.getInnovator();
+var isLocked = this.getLockStatus();
+var itemId = this.getAttribute("id");
+var typeID = this.getAttribute("typeId");
+var itemType = this.getAttribute("type");
+if (isLocked !== 0) {
+    aras.AlertError("Unlock the " + itemType + " to start workflow");
+    return;
+}
+var wfProcess = inn.newItem("Workflow Process", "get");
+wfProcess.setProperty("name", this.getProperty("item_number"));
+wfProcess.setAttribute("select", "id");
+wfProcess = wfProcess.apply();
+var wfCount = wfProcess.getItemCount();
+if (wfCount !== 0) {
+    aras.AlertError("Workflow Process already exists for this " + itemType + " with ID " + itemId);
+    return;
+}
+
+//Get allowed Workflow
+var workflowList = inn.newItem("Allowed Workflow", "get");
+workflowList.setProperty("source_id", typeID);
+workflowList.setAttribute("select", "related_id,id");
+workflowList = workflowList.apply();
+pathnames = [];
+if (workflowList.isError()) {
+    aras.AlertError("Cannot fetch Workflow for " + itemType);
+    return;
+}
+var count = workflowList.getItemCount();
+for (var i = 0; i < count; i++) {
+    var listVal = workflowList.getItemByIndex(i);
+    var workflow = listVal.getRelatedItem();
+    var pathname = workflow.getProperty("label");
+    pathnames.push({
+        value: pathname
+    });
+}
+if (pathnames.length === 0) {
+    aras.AlertError("No Workflow Exist for " + itemType);
+} else {
+    //load workflow form
+    var formNd = top.aras.getItemByName('Form', 'Story_ChangeItems_ActionForm', 0);
+    if (!formNd)
+        return aras.AlertError("Can't find a form called " + formName);
+    // Set Parameters
+    var params = {
+        title: 'Select Workflow to Instantiate',
+        formId: formNd.getAttribute('id'),
+        id: itemId,
+        type: itemType,
+        aras: aras,
+        path: pathnames,
+        dialogWidth: 350,
+        dialogHeight: 200,
+        content: 'ShowFormAsADialog.html'
+    };
+    var wnd = aras.getMostTopWindowWithAras(window);
+    wnd = wnd.main || wnd;
+    wnd.ArasModules.Dialog.show('iframe', params);
+}]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_Change_Items_OpenForm</name>
+ </Item>
+</AML>

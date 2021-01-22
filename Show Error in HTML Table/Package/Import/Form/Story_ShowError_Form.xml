@@ -1,0 +1,103 @@
+﻿<AML>
+ <Item type="Form" id="42E5ADE277AA4A9897DE7F9D8A63E161" action="add">
+  <category_form>0</category_form>
+  <height>200</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>350</width>
+  <name>Story_ShowError_Form</name>
+  <Relationships>
+   <Item type="Body" id="4F94841691F145F9B9904166A3FDB3B1" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_ShowError_Form" type="Form">42E5ADE277AA4A9897DE7F9D8A63E161</source_id>
+    <Relationships>
+     <Item type="Field" id="CC6FFDB5F5DB44C8A8C1E1A397C00AA5" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Cancel</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="4F94841691F145F9B9904166A3FDB3B1" type="Body">4F94841691F145F9B9904166A3FDB3B1</source_id>
+      <tab_stop>1</tab_stop>
+      <x>170</x>
+      <y>130</y>
+      <name>cancel</name>
+      <Relationships>
+       <Item type="Field Event" id="EE514F4FC96B4FFD9AB731D2BFA98D12" action="add">
+        <field_event>onclick</field_event>
+        <related_id keyed_name="Story_ShowError_Cancel" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>Story_ShowError_Cancel</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="cancel" type="Field">CC6FFDB5F5DB44C8A8C1E1A397C00AA5</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Field" id="6C37DDE908BF4134AE477FD4378C364B" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Update Description</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="4F94841691F145F9B9904166A3FDB3B1" type="Body">4F94841691F145F9B9904166A3FDB3B1</source_id>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>300</textarea_cols>
+      <textarea_rows>60</textarea_rows>
+      <x>15</x>
+      <y>15</y>
+      <name>description</name>
+     </Item>
+     <Item type="Field" id="ED47D088DD454C65951C158357414E72" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Update</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="4F94841691F145F9B9904166A3FDB3B1" type="Body">4F94841691F145F9B9904166A3FDB3B1</source_id>
+      <tab_stop>1</tab_stop>
+      <x>70</x>
+      <y>130</y>
+      <name>update</name>
+      <Relationships>
+       <Item type="Field Event" id="EA202C1229D64B17A8ED249BF83A1B2A" action="add">
+        <field_event>onclick</field_event>
+        <related_id keyed_name="Story_ShowError_GetItems" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>Story_ShowError_GetItems</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="update" type="Field">ED47D088DD454C65951C158357414E72</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

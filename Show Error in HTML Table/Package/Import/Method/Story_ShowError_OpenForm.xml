@@ -1,0 +1,41 @@
+﻿<AML>
+ <Item type="Method" id="0F77E709D19740BDB36F65D889FCF1A1" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var wnd = aras.getMainWindow();
+var topWnd = aras.getMostTopWindowWithAras(window);
+wnd = wnd === topWnd ? wnd.main : topWnd;
+var selectedId;
+var itemType;
+if (wnd.parent.main) {
+	itemType = wnd.parent.main.work.itemTypeName;
+	selectedId = wnd.parent.main.work.grid.getSelectedItemIds();
+} else {
+	itemType = wnd.itemTypeName;
+	selectedId = [wnd.itemID];
+}
+if (selectedId.length < 1) {
+	return;
+}
+var formNd = aras.getItemByName('Form', 'Story_ShowError_Form', 0);
+var param = {};
+param.title = 'Update Description to Parts';
+param.formId = formNd.getAttribute('id');
+param.aras = aras;
+param.isEditMode = true;
+param.item = aras.newIOMItem(itemType, '');
+param.item.setAttribute('itemtype', itemType);
+param.item.setAttribute('idlist', selectedId);
+
+var width = top.aras.getItemProperty(formNd, 'width');
+var height = top.aras.getItemProperty(formNd, 'height');
+
+var options = {
+	dialogWidth: width,
+	dialogHeight: height,
+	resizable: true
+};
+aras.modalDialogHelper.show('DefaultPopup', wnd, param, options, 'ShowFormAsADialog.html');]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_ShowError_OpenForm</name>
+ </Item>
+</AML>

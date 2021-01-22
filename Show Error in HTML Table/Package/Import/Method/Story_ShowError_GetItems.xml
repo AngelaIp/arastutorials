@@ -1,0 +1,29 @@
+﻿<AML>
+ <Item type="Method" id="54918E02E820467EB07379203D2D325A" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var wnd = aras.getMainWindow();
+var topWnd = aras.getMostTopWindowWithAras(window);
+wnd = wnd === topWnd ? wnd.main : topWnd;
+var innovator = new Innovator();
+var description = document.forms.MainDataForm.elements['description'].value;
+var selectedIds = document.thisItem.getAttribute('idlist');
+var itemType = document.thisItem.getAttribute('itemtype');
+if(description === "")
+{
+    return aras.AlertError("Please Enter the Description to Update the item.");
+}
+
+var results = innovator.applyMethod("Story_ShowError_Table", "<selectedId>" + selectedIds + "</selectedId><itemType>" + itemType + "</itemType><description>" + description + "</description>");
+if (results.isError()) {
+    parent.args.dialog.close();
+    return aras.AlertError(results);
+} else {
+    wnd.parent.main.work.searchContainer.runSearch();
+    parent.args.dialog.close();
+    return aras.AlertSuccess("Description Updated Successfully.");
+    
+}]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Story_ShowError_GetItems</name>
+ </Item>
+</AML>

@@ -1,0 +1,116 @@
+﻿<AML>
+ <Item type="Form" id="4DD5890BEC4044B39A10909499538B8A" action="add">
+  <category_form>0</category_form>
+  <description />
+  <height>200</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>450</width>
+  <name>Story_Request_Identity_Form</name>
+  <Relationships>
+   <Item type="Body" id="6436B653C57848B28117173D10760C9E" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_Request_Identity" type="Form">4DD5890BEC4044B39A10909499538B8A</source_id>
+    <Relationships>
+     <Item type="Field" id="74B960671E114332A46C982B0160FAFE" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Cancel</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="6436B653C57848B28117173D10760C9E" type="Body">6436B653C57848B28117173D10760C9E</source_id>
+      <tab_stop>1</tab_stop>
+      <text_align>center</text_align>
+      <x>235</x>
+      <y>110</y>
+      <name>cancel</name>
+      <Relationships>
+       <Item type="Field Event" id="DC196AB8415945728E8E4018405B48B7" action="add">
+        <field_event>onclick</field_event>
+        <related_id keyed_name="Story_Request_Identity_Cancel" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>Story_Request_Identity_Cancel</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="cancel" type="Field">74B960671E114332A46C982B0160FAFE</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Field" id="52533399B1F643F78F1D355406461608" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>button</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Elevate Identity</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="6436B653C57848B28117173D10760C9E" type="Body">6436B653C57848B28117173D10760C9E</source_id>
+      <tab_stop>1</tab_stop>
+      <text_align>center</text_align>
+      <x>110</x>
+      <y>110</y>
+      <name>create</name>
+      <Relationships>
+       <Item type="Field Event" id="BC7C650D90DA4C669F2B69A3E8FF3AE4" action="add">
+        <field_event>onclick</field_event>
+        <related_id keyed_name="Story_Request_Identity_Create" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>Story_Request_Identity_Create</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="create" type="Field">52533399B1F643F78F1D355406461608</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Field" id="7C5AB22627A948FB90574362E0CBB693" action="add">
+      <border_width>0</border_width>
+      <display_length>200</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Identities List</label>
+      <label_position>left</label_position>
+      <list_no_blank>1</list_no_blank>
+      <listbox_size>10</listbox_size>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="6436B653C57848B28117173D10760C9E" type="Body">6436B653C57848B28117173D10760C9E</source_id>
+      <tab_stop>1</tab_stop>
+      <x>60</x>
+      <y>30</y>
+      <name>identitylist</name>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Form Event" id="4D1D6438272D437D86A52CB641E0E9F3" action="add">
+    <form_event>onload</form_event>
+    <related_id keyed_name="Story_Request_Identity_FillList" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Story_Request_Identity_FillList</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_Request_Identity" type="Form">4DD5890BEC4044B39A10909499538B8A</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

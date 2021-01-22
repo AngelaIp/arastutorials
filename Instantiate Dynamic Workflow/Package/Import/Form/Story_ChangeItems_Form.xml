@@ -1,0 +1,164 @@
+﻿<AML>
+ <Item type="Form" id="F0A0356431FA45AE820FE5C918863B29" action="add">
+  <category_form>0</category_form>
+  <height>180</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>Story_ChangeItems_Form</name>
+  <Relationships>
+   <Item type="Body" id="5AA6BA7D56D849A4BA487A9F12B043BE" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_ChangeItems_Form" type="Form">F0A0356431FA45AE820FE5C918863B29</source_id>
+    <Relationships>
+     <Item type="Field" id="48F8BB9965D448B6BC43DE5FFBC1DF05" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Description</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="description" type="Property">2E795D0256114CA6B9357BA5805187B6</propertytype_id>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="5AA6BA7D56D849A4BA487A9F12B043BE" type="Body">5AA6BA7D56D849A4BA487A9F12B043BE</source_id>
+      <tab_index>3200</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>560</textarea_cols>
+      <textarea_rows>50</textarea_rows>
+      <x>20</x>
+      <y>70</y>
+      <name>description</name>
+     </Item>
+     <Item type="Field" id="560AA17A5536408594613904DC09147F" action="add">
+      <bg_color>beige  </bg_color>
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Change Number</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="item_number" type="Property">9006F0B5D8504AD4BAB89EE06C328CC6</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="5AA6BA7D56D849A4BA487A9F12B043BE" type="Body">5AA6BA7D56D849A4BA487A9F12B043BE</source_id>
+      <tab_index>3072</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>20</x>
+      <y>20</y>
+      <name>item_number</name>
+     </Item>
+     <Item type="Field" id="342ADA958ACB46AB9B4285E0D9E98CB9" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Modified By</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="5AA6BA7D56D849A4BA487A9F12B043BE" type="Body">5AA6BA7D56D849A4BA487A9F12B043BE</source_id>
+      <tab_index>1152</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>305</x>
+      <y>20</y>
+      <name>modified_by_id</name>
+     </Item>
+     <Item type="Field" id="0FA69ACE5A8F4B66AF30DC71B53A8299" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Owned By</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="5AA6BA7D56D849A4BA487A9F12B043BE" type="Body">5AA6BA7D56D849A4BA487A9F12B043BE</source_id>
+      <tab_index>768</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>155</x>
+      <y>20</y>
+      <name>owned_by_id</name>
+     </Item>
+     <Item type="Field" id="741DF0875AEA4B19AFF44338625D434D" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">state</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="5AA6BA7D56D849A4BA487A9F12B043BE" type="Body">5AA6BA7D56D849A4BA487A9F12B043BE</source_id>
+      <tab_index>1408</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>460</x>
+      <y>20</y>
+      <name>state</name>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Form Event" id="7A917EED0EA349F49D871BB35594273A" action="add">
+    <form_event>onformpopulated</form_event>
+    <related_id keyed_name="Story_Change_Items_RefreshSignOf" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Story_Change_Items_RefreshSignOf</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story_ChangeItems_Form" type="Form">F0A0356431FA45AE820FE5C918863B29</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="Field" id="342ADA958ACB46AB9B4285E0D9E98CB9" action="edit">
+  <!-- Please note: this AML depends on the "Story Change Items" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>modified_by_id</name>
+    <source_id type="ItemType" keyed_name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+ <Item type="Field" id="0FA69ACE5A8F4B66AF30DC71B53A8299" action="edit">
+  <!-- Please note: this AML depends on the "Story Change Items" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>owned_by_id</name>
+    <source_id type="ItemType" keyed_name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+ <Item type="Field" id="741DF0875AEA4B19AFF44338625D434D" action="edit">
+  <!-- Please note: this AML depends on the "Story Change Items" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>state</name>
+    <source_id type="ItemType" keyed_name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+</AML>

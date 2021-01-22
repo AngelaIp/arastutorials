@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="D82CED8CA79F46F8BA1BEFD65178A238" action="add">
+  <item_query>&lt;Item type="{@type}" id="{@id}" levels= "1" action="get" /&gt;</item_query>
+  <label xml:lang="en">Instantiate Workflow</label>
+  <location>client</location>
+  <method keyed_name="Story_Change_Items_OpenForm" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>Story_Change_Items_OpenForm</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>item</type>
+  <name>Story_Change_Items_InitiateWorkflow</name>
+ </Item>
+</AML>

@@ -1,0 +1,249 @@
+﻿<AML>
+ <Item type="ItemType" id="C69FAC7C652F451BBA527DEDE548B5FE" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>STORY_CHANGE_ITEMS</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">Story Change Item</label>
+  <label_plural xml:lang="en">Story Change Items</label_plural>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Story Change Items</name>
+  <Relationships>
+   <Item type="ITPresentationConfiguration" id="E4D345163FA8656D6B77D6069BFA2DFF" action="add">
+    <client>js</client>
+    <related_id keyed_name="Story Change Items_TOC_Configuration" type="PresentationConfiguration">E4D345163FA8656D36326AA7318BB90D</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+   <Item type="Property" id="2E795D0256114CA6B9357BA5805187B6" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="9006F0B5D8504AD4BAB89EE06C328CC6" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Story_Change_Items_Sequence">B81D3E3FB8A44FCC8E5BF6C71083E80E</data_source>
+    <data_type>sequence</data_type>
+    <default_value xml:lang="en">Server Assigned</default_value>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Change Number</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="View" id="FF1B7E3DEC984BB89F4D2385C8EBC9F9" action="add">
+    <client>js</client>
+    <related_id keyed_name="Story_ChangeItems_Form" type="Form">F0A0356431FA45AE820FE5C918863B29</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Item Action" id="8F40E8D713E74D8CBB474A84074154BA" action="add">
+    <related_id keyed_name="Story_Change_Items_InitiateWorkflow" type="Action">D82CED8CA79F46F8BA1BEFD65178A238</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="A02CFE7BFF56441090D2B1FDB9B586F2" action="add">
+    <related_id keyed_name="Story_Change_Items_LifeCycle" type="Life Cycle Map">9E12A48E5C9C44F28E179E37A67F0298</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="00A39672E0C34D518D72724BC6F570BB" action="add">
+    <is_default>0</is_default>
+    <related_id keyed_name="Story_Change_Items_Workflow1" type="Workflow Map">6397905FA6764C2E9BA9271C4852457B</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="688E5C0282C14BE494CD96FF0774E859" action="add">
+    <is_default>0</is_default>
+    <related_id keyed_name="Story_Change_Items_Workflow2" type="Workflow Map">3D01F70D3C7341318E9A7AEB45760433</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="958E2E88B80345E6B10890205254B248" action="add">
+    <is_default>0</is_default>
+    <related_id keyed_name="Story_Change_Items_Workflow3" type="Workflow Map">1BDCDFDA2C474C9B8535853D458BA275</related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+   <Item type="TOC Access" id="49E3B8733AD141ABAC75DF968B375E4C" action="add">
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <category>Design</category>
+   </Item>
+   <Item type="Can Add" id="257E8E908BFB41C5BC35F985DE93F25F" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="0BC638487D0E43A58B02470DE6800D2F" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Story Change Items Permission" type="Permission">CF98540A97344E818E4E71DCEB4411D0</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="C69FAC7C652F451BBA527DEDE548B5FE" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='C69FAC7C652F451BBA527DEDE548B5FE' and name='created_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="User" type="ItemType" name="User">45E899CD2859442982EB22BB2DF683E5</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Created By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>3400</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <track_history>0</track_history>
+    <name>created_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='C69FAC7C652F451BBA527DEDE548B5FE' and name='created_on'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Created On</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <track_history>0</track_history>
+    <name>created_on</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='C69FAC7C652F451BBA527DEDE548B5FE' and name='modified_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="User" type="ItemType" name="User">45E899CD2859442982EB22BB2DF683E5</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Modified By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <track_history>0</track_history>
+    <name>modified_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='C69FAC7C652F451BBA527DEDE548B5FE' and name='modified_on'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en" />
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <track_history>0</track_history>
+    <name>modified_on</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='C69FAC7C652F451BBA527DEDE548B5FE' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Owned By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <track_history>0</track_history>
+    <name>owned_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='C69FAC7C652F451BBA527DEDE548B5FE' and name='state'">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">State</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="Story Change Items" type="ItemType" name="Story Change Items">C69FAC7C652F451BBA527DEDE548B5FE</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

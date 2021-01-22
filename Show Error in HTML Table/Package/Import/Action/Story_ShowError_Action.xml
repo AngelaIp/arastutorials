@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="3550C8D90AA0409285EB5F37D5445B57" action="add">
+  <item_query />
+  <label xml:lang="en">Update Description</label>
+  <location>client</location>
+  <method keyed_name="Story_ShowError_OpenForm" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>Story_ShowError_OpenForm</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>itemtype</type>
+  <name>Story_ShowError_Action</name>
+ </Item>
+</AML>

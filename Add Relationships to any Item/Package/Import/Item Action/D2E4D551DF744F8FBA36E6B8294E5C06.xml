@@ -1,0 +1,21 @@
+﻿<AML>
+ <Item type="Item Action" id="D2E4D551DF744F8FBA36E6B8294E5C06" action="add">
+  <related_id keyed_name="Story_AddRelationships_Action" type="Action">
+   <Item type="Action" id="44ACBF8FE49340C4BB969434EBE702F7" action="add">
+    <item_query />
+    <label xml:lang="en">Add Relationships</label>
+    <location>client</location>
+    <method keyed_name="Story_AddRelationships_OpenForm" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Story_AddRelationships_OpenForm</name>
+     </Item>
+    </method>
+    <target>none</target>
+    <type>itemtype</type>
+    <name>Story_AddRelationships_Action</name>
+   </Item>
+  </related_id>
+  <sort_order>1536</sort_order>
+  <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+ </Item>
+</AML>

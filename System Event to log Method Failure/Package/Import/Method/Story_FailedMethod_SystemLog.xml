@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Method" id="CAA5AB07A4914540903E54B54DC37E4B" action="add">
+  <comments>This Method will log incase if any method execution failed</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Innovator inn = this.getInnovator();
+string eventType = this.getProperty("eventType");
+string methodName = this.getProperty("methodName");
+string errorMessage = this.getProperty("errorMessage");
+string userID = inn.getUserID();
+CCO.SystemEventLogger.CreateSystemLogRecord(eventType,methodName,userID,errorMessage);
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Story_FailedMethod_SystemLog</name>
+ </Item>
+</AML>

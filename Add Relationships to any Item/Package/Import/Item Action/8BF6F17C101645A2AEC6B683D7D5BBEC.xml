@@ -1,0 +1,21 @@
+﻿<AML>
+ <Item type="Item Action" id="8BF6F17C101645A2AEC6B683D7D5BBEC" action="add">
+  <related_id keyed_name="Story_AddRelationships_Action" type="Action">
+   <Item type="Action" id="44ACBF8FE49340C4BB969434EBE702F7" action="add">
+    <item_query />
+    <label xml:lang="en">Add Relationships</label>
+    <location>client</location>
+    <method keyed_name="Story_AddRelationships_OpenForm" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Story_AddRelationships_OpenForm</name>
+     </Item>
+    </method>
+    <target>none</target>
+    <type>itemtype</type>
+    <name>Story_AddRelationships_Action</name>
+   </Item>
+  </related_id>
+  <sort_order>512</sort_order>
+  <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+ </Item>
+</AML>

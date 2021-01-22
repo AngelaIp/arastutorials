@@ -1,0 +1,10 @@
+﻿<AML>
+ <Item type="Sequence" id="B81D3E3FB8A44FCC8E5BF6C71083E80E" action="add">
+  <initial_value>0</initial_value>
+  <pad_to>8</pad_to>
+  <pad_with>0</pad_with>
+  <prefix>SCI</prefix>
+  <step>1</step>
+  <name>Story_Change_Items_Sequence</name>
+ </Item>
+</AML>

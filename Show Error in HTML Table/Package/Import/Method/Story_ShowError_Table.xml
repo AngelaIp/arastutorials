@@ -1,0 +1,51 @@
+﻿<AML>
+ <Item type="Method" id="2AE5FCF2F805448E91BF985F3DCE81B0" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Innovator inn = this.getInnovator();
+string selectedIds = this.getProperty("selectedId");
+string itemType = this.getProperty("itemType");
+string description = this.getProperty("description");
+var mappinglist = new List <KeyValuePair <string,string>> ();
+string[] values = selectedIds.Split(',');
+for (int i = 0; i < values.Length; i++) 
+{
+    Item itmget = inn.newItem(itemType, "get");
+    itmget.setAttribute("id", values[i]);
+    itmget.setProperty("select", "item_number");
+    Item itmgetResult = itmget.apply();
+    try 
+    {
+        itmget.setAction("edit");
+        itmget.setProperty("name", description);
+        itmget = itmget.apply();
+        if (itmget.isError()) 
+        {
+            mappinglist.Add(new KeyValuePair < string, string > (itmgetResult.getProperty("item_number"), itmget.getErrorString()));
+        }
+    } 
+    catch (Exception ex) 
+    {
+        mappinglist.Add(new KeyValuePair < string, string > (itmgetResult.getProperty("item_number"), ex.Message));
+    }
+}
+if (mappinglist.Count > 0) 
+{
+    string tableStyle = "style='border:1px solid black;border-collapse:collapse;'";
+    string rowStyle = "style='border:1px solid grey; height:25px; text-align:center'";
+
+    string tableData = string.Empty;
+    foreach(KeyValuePair < string, string > eachMap in mappinglist) 
+    {
+        tableData = String.Concat(tableData, String.Format(CultureInfo.InvariantCulture, "<tr><td {0}>{1}</td><td {0}>{2}</td></tr>", rowStyle, eachMap.Key, eachMap.Value));
+    }
+    string errorHtml = String.Format(CultureInfo.InvariantCulture, @"<table {0}>" + @"<tr>" + @"<th {1}><b>&ensp;Item(s)  Failed&ensp;</th>" + @"<th {1}><b>&ensp;Detailed Error Description&ensp;</th>" + @"</tr>{2}" + @"</table>", tableStyle, rowStyle, tableData);
+    return inn.newError(errorHtml);
+} 
+else 
+{
+    return inn.newResult("Success");
+}]]></method_code>
+  <method_type>C#</method_type>
+  <name>Story_ShowError_Table</name>
+ </Item>
+</AML>
