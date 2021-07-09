@@ -17,3 +17,9 @@ https://arastutorials.blogspot.com/2021/01/showerrorintablearas.html
 
 Use Case 6 : Use the System Event Logs for Logging Method Failure
 https://arastutorials.blogspot.com/2021/01/createsystemeventlogs.html
+
+Use Case 7 : Decide Voting Path Based on Parent Property
+https://arastutorials.blogspot.com/2021/06/decidevotingpath.html
+
+Use Case 8 : Get User SignOff Comments
+https://arastutorials.blogspot.com/2021/07/getusersignoffcomments.html

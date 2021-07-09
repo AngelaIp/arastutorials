@@ -1,0 +1,66 @@
+﻿<AML>
+ <Item type="Method" id="F43F3C00C83F48BF9656BEF067127894" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Innovator inn = this.getInnovator();
+Aras.Server.Security.Identity plmIdentity = Aras.Server.Security.Identity.GetByName("Super User");
+bool permissionWasSet = false;
+try
+{
+    permissionWasSet = Aras.Server.Security.Permissions.GrantIdentity(plmIdentity);
+	Item wf = inn.newItem ("Workflow","get");
+	Item wfp = inn.newItem("Workflow Process","get");  
+	Item wfpa = inn.newItem("Workflow Process Activity","get");  
+	Item act = inn.newItem("Activity","get");  
+	act.setID(this.getID());  
+	wf.setRelatedItem(wfp);   
+	wfp.addRelationship(wfpa);   
+	wfpa.setRelatedItem(act);  
+	wf = wf.apply();  
+	if( 1 != wf.getItemCount())
+	{
+		wf = wf.getItemByIndex(0);
+	}
+	Item parentItem = this.newItem("Express ECO", "get");
+	parentItem.setID(wf.getProperty("source_id"));
+	parentItem = parentItem.apply();
+	
+	string userID = inn.getUserID();
+    Item workflow = inn.newItem("Workflow", "get");
+	workflow.setProperty("source_id",parentItem.getID());
+    Item workflowProcess = inn.newItem("Workflow Process", "get");
+    Item workflowProcessActivity = inn.newItem("Workflow Process Activity", "get");
+    Item activity = inn.newItem("Activity", "get");
+	activity.setProperty("closed_by","");
+	activity.setPropertyCondition("closed_by","is not null");
+    Item activityAssign = inn.newItem("Activity Assignment", "get");
+    activityAssign.setProperty("closed_by",userID);
+    activity.addRelationship(activityAssign);
+    workflowProcessActivity.setRelatedItem(activity);
+    workflowProcess.addRelationship(workflowProcessActivity);
+    workflow.setRelatedItem(workflowProcess);
+    workflow = workflow.apply();
+
+    Item activityAssignment = workflow.getItemsByXPath("//Item[@type='Activity Assignment']");
+	if( activityAssignment.getItemCount() == 0 ) 
+	{
+		return inn.newError("No Closed Activity");
+	}
+	string comments = activityAssignment.getItemByIndex(0).getProperty("comments");
+	return inn.newError(comments); 
+	return this;
+}
+catch(Exception ex)
+{
+    return inn.newError(ex.Message);
+}
+finally
+{
+	if(permissionWasSet)
+	{
+	    Aras.Server.Security.Permissions.RevokeIdentity(plmIdentity);
+	}
+}]]></method_code>
+  <method_type>C#</method_type>
+  <name>Story_GetUserSignOffsComment</name>
+ </Item>
+</AML>
