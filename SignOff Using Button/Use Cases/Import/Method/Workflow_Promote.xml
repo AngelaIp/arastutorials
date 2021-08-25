@@ -1,0 +1,81 @@
+﻿<AML>
+ <Item type="Method" id="999ABF0913F341E9999FA5303E447EE9" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// WARNING: DO NOT FORGET TO DISABLE THIS IN A PRODUCTION ENVIRONMENT!!!
+// if( System.Diagnostics.Debugger.Launch() ) System.Diagnostics.Debugger.Break();
+Innovator inn = this.getInnovator();
+string itemID = this.getProperty("itemId","");
+string itemType = this.getProperty("itemType","");
+string votePath = this.getProperty("votingPath","");
+if ( itemID == "" ){
+return inn.newError("No Item ID supplied");
+}
+if ( itemType == ""){
+return inn.newError("No Item type supplied");
+}
+if ( votePath == "" ){
+return inn.newError("No voting path supplied");
+}
+// retrieve the "Active" workflow activity:
+Item wfcItem = inn.newItem(itemType,"get");
+wfcItem.setID(itemID);
+Item workflow = inn.newItem("Workflow","get");
+Item workflowProcess = inn.newItem("Workflow Process","get");
+Item wfpa = inn.newItem("Workflow Process Activity","get");
+Item activity = inn.newItem("Activity","get");
+activity.setProperty("state","Active");
+Item activityAssign = inn.newItem("Activity Assignment","get");
+Item wpp = inn.newItem("Workflow Process Path","get");
+wpp.setProperty("name",votePath);
+activity.addRelationship(activityAssign);
+activity.addRelationship(wpp);
+wfpa.setRelatedItem(activity);
+workflowProcess.addRelationship(wfpa);
+workflow.setRelatedItem(workflowProcess);
+wfcItem.addRelationship(workflow);
+wfcItem = wfcItem.apply();
+if ( wfcItem.isError() ){
+return inn.newError("Error retrieving Workflow Process Item: " + wfcItem.getErrorString());
+}
+Item wfPaths = wfcItem.getItemsByXPath("//Item[@type='Workflow Process Path']");
+if ( wfPaths.getItemCount() != 1 ){
+return inn.newError("Unable to get voting path: " + votePath);
+}
+string submitPathId = "";
+submitPathId = wfPaths.getItemByIndex(0).getID();
+Item act = wfcItem.getItemsByXPath("//Item[@type='Workflow Process Activity']/related_id/Item[@type='Activity']");
+if ( act.getItemCount() != 1 ){
+return inn.newError("Unable to get activity");
+}
+string actId = act.getID();
+string vote = votePath;
+string comment = "";
+string assignId = "";
+Item actAss = wfcItem.getItemsByXPath("//Item[@type='Activity Assignment']");
+if ( actAss.getItemCount() != 1){
+return inn.newError("Unable to get activity assignment");
+}
+assignId = actAss.getID();
+// Build the voting request
+StringBuilder voteXml = new StringBuilder("");
+voteXml.Append("<Item type=\"Activity\" action=\"EvaluateActivity\">");
+voteXml.Append(" <Activity>{0}</Activity>");
+voteXml.Append(" <ActivityAssignment>{1}</ActivityAssignment>");
+voteXml.Append(" <Paths>");
+voteXml.Append(" <Path id=\"{2}\">{3}</Path>");
+voteXml.Append(" </Paths>");
+voteXml.Append(" <DelegateTo>0</DelegateTo>");
+voteXml.Append(" <Tasks />");
+voteXml.Append(" <Variables />");
+voteXml.Append(" <Authentication mode=\"\" />");
+voteXml.Append(" <Comments>{4}</Comments>");
+voteXml.Append(" <Complete>1</Complete>");
+voteXml.Append("</Item>");
+Item res = inn.newItem();
+res.loadAML(String.Format(voteXml.ToString(),actId,assignId,submitPathId,vote,comment));
+res = res.apply();
+return res;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Workflow_Promote</name>
+ </Item>
+</AML>

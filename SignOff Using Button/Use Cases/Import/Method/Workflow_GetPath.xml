@@ -1,0 +1,100 @@
+﻿<AML>
+ <Item type="Method" id="8E765EBF77FA46CC9823DE863D4E4FC0" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// WARNING: DO NOT FORGET TO DISABLE THIS IN A PRODUCTION ENVIRONMENT!!!
+// debugger;
+var inn = document.thisItem.getInnovator();
+var userID = top.aras.getCurrentUserID();
+var user = inn.getItemById("User", userID);
+var userName = user.getProperty("keyed_name", "");
+var itemtype = document.item.getAttribute("type");
+var itemid = document.item.getAttribute("id");
+var locked = aras.getItemProperty(parent.item, "locked_by_id");
+if (document.item.getAttribute("action") === "add" || locked !== "")
+{
+        aras.AlertError("Save the Item and Unlock to Proceed Sign Off");
+}
+else
+{
+        var query1 = new top.Item("tmp", "tmp");
+        query1.loadAML("<Item type='InBasket Task' action='get' select='id,assigned_to,container,my_assignment,status'>" +
+                "<status condition='eq'>active</status>" +
+                "<my_assignment condition='eq'>1</my_assignment>" +
+                "<assigned_to><Item type='Identity' action='get'>" +
+                "<keyed_name condition='eq'>"+ userName +"</keyed_name>" +
+                "</Item>" +
+                "</assigned_to>" +
+                "<item><id>" + document.item.getAttribute("id") + "</id></item>" +
+                "</Item>");
+        var result1 = query1.apply();
+        if (result1.getItemCount() == 1 && !result1.isError())
+		{   
+        var activity_assigment_id = result1.getAttribute("id");
+        var query2 = new top.Item("tmp", "tmp");
+        query2.loadAML("<Item type='Activity' action='get' select='id'>" +
+                "<Relationships>" +
+                "<Item type='Activity Assignment' action='get' select='id'>" +
+                "<id>" + activity_assigment_id + "</id>" +
+                "</Item>" +
+                "<Item type='Workflow Process Path' action='get' select='id,name'>" +
+                "</Item>" +
+                "</Relationships>" +
+                "</Item>");
+        var result2 = query2.apply();
+        pathnames = [];
+        var activity_id = result2.getAttribute("id");
+        var rels = result2.getRelationships("Workflow Process Path");
+        var count = rels.getItemCount();
+        for (var i = 0; i < count; i++)
+        {
+                var rel = rels.getItemByIndex(i);
+                var pathname = rel.getProperty("name");
+                pathnames.push({value: pathname});
+        }
+		if(pathnames.length === 0)
+		{
+			aras.AlertError("No Path Exist to Proceed SignOff.");
+		}
+        else if(pathnames.length > 1)
+        {
+        var formNd = top.aras.getItemByName('Form', 'Workflow_Promote', 0);
+        if (!formNd)
+                return alert("Can't find a form called " + formName);
+        var params = {
+                title: 'Select Path',
+                formId: formNd.getAttribute('id'),
+                id: itemid,
+                type: itemtype,
+                path: pathnames,
+                aras: aras,
+                dialogWidth: 350,
+                dialogHeight: 200,
+                content: 'ShowFormAsADialog.html'
+        };
+        var wnd = aras.getMostTopWindowWithAras(window);
+        wnd = wnd.main || wnd;
+        wnd.ArasModules.Dialog.show('iframe', params);
+		}
+		else
+		{
+			var body = "<itemId>" + itemid + "</itemId><itemType>"+ itemtype +"</itemType><votingPath>"+ pathname +"</votingPath>";
+			var voteRes = inn.applyMethod("Workflow_Promote", body);
+			if (voteRes.isError()) 
+			{
+				aras.AlertError("Error voting for activity: " + voteRes.getErrorString());
+			}
+			else
+			{   
+			aras.AlertSuccess("Voting Successful");
+			}
+		}
+		}
+		else
+		{
+		aras.AlertError("No Active Assignment Exist for User "+ userName);
+		}
+}]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Workflow_GetPath</name>
+ </Item>
+</AML>

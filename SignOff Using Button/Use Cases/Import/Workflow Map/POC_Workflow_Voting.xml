@@ -1,0 +1,440 @@
+﻿<AML>
+ <Item type="Workflow Map" id="DF77386DAE93440DBDD9D0BD86431430" action="add">
+  <description xml:lang="en" />
+  <node_bg_color>       </node_bg_color>
+  <node_label1_color>       </node_label1_color>
+  <node_label1_font />
+  <node_label2_color>       </node_label2_color>
+  <node_label2_font />
+  <node_name_color>       </node_name_color>
+  <node_name_font />
+  <node_size />
+  <process_owner keyed_name="Creator" type="Identity">
+   <Item type="Identity" action="get" select="id">
+    <name>Creator</name>
+   </Item>
+  </process_owner>
+  <transition_line_color>       </transition_line_color>
+  <transition_name_color>       </transition_name_color>
+  <transition_name_font />
+  <name>POC_Workflow_Voting</name>
+  <Relationships>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Closed" type="Activity Template">
+     <Item type="Activity Template" id="0DD0751B2A24449283B0B439332E895C" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/Delete.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Workflow End</message>
+      <priority>1</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>831</x>
+      <y>70</y>
+      <name>Closed</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="064D7C01864A4F12804F2300B7388572" action="add">
+        <related_id keyed_name="Super User" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Super User</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Closed" type="Activity Template">0DD0751B2A24449283B0B439332E895C</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Workflow Map Path" id="FA60D4E8768C4A50A005E08CB759A345" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Archived</name>
+        <related_id>8465530C4E874EBCB5C746590855CC61</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Closed" type="Activity Template">0DD0751B2A24449283B0B439332E895C</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+       <Item type="Workflow Map Path" id="93CB387042F94D80983D30CEAD79B222" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Completed</name>
+        <related_id>39E00D4B489F4003AF8E53F33E645D4D</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Closed" type="Activity Template">0DD0751B2A24449283B0B439332E895C</source_id>
+        <x>-100</x>
+        <y>-7</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="POC_Workflow_Voting" type="Workflow Map">DF77386DAE93440DBDD9D0BD86431430</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Start" type="Activity Template">
+     <Item type="Activity Template" id="1AC1A82F0A564676972987BF604863B1" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/WorkflowStart.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>1</is_start>
+      <message xml:lang="en">Workflow Start</message>
+      <priority>2</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>121</x>
+      <y>73</y>
+      <name>Start</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="A3090A80911745709E29C264BF17FA20" action="add">
+        <related_id keyed_name="Super User" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Super User</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Start" type="Activity Template">1AC1A82F0A564676972987BF604863B1</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Workflow Map Path" id="7B76F57874C94077B1B3801FDC742F27" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Procurement Review</name>
+        <related_id>36C10CCBC3484A218FAA83D58C0A13E4</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Start" type="Activity Template">1AC1A82F0A564676972987BF604863B1</source_id>
+        <x>42</x>
+        <y>-7</y>
+       </Item>
+       <Item type="Workflow Map Path" id="F68C06B17FCA4E1DAFE93BCF238DAB1E" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Archived</name>
+        <related_id>8465530C4E874EBCB5C746590855CC61</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Start" type="Activity Template">1AC1A82F0A564676972987BF604863B1</source_id>
+        <x>188</x>
+        <y>59</y>
+       </Item>
+       <Item type="Workflow Map Path" id="13D0FF94EE2543A896C484364BDD4A50" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>On Hold</name>
+        <related_id>9776623EE8944F7D8BA683DE855FCBBB</related_id>
+        <segments />
+        <sort_order>384</sort_order>
+        <source_id keyed_name="Start" type="Activity Template">1AC1A82F0A564676972987BF604863B1</source_id>
+        <x>136</x>
+        <y>109</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="POC_Workflow_Voting" type="Workflow Map">DF77386DAE93440DBDD9D0BD86431430</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Procurement Review" type="Activity Template">
+     <Item type="Activity Template" id="36C10CCBC3484A218FAA83D58C0A13E4" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>315</x>
+      <y>73</y>
+      <name>Procurement Review</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="C530311FAF2B4C3B8AF75F3FEED90E00" action="add">
+        <related_id keyed_name="Super User" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Super User</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Procurement Review" type="Activity Template">36C10CCBC3484A218FAA83D58C0A13E4</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Workflow Map Path" id="BED801B7431B4B59A2B6C532DB6D408D" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>AGP Review</name>
+        <related_id>A2D6E6BA59F6475F890994C0ACC9CC0F</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Procurement Review" type="Activity Template">36C10CCBC3484A218FAA83D58C0A13E4</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="POC_Workflow_Voting" type="Workflow Map">DF77386DAE93440DBDD9D0BD86431430</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="AGP Review" type="Activity Template">
+     <Item type="Activity Template" id="A2D6E6BA59F6475F890994C0ACC9CC0F" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>488</x>
+      <y>73</y>
+      <name>AGP Review</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="DB1E6E6D67004449B424DBE85DB4C287" action="add">
+        <related_id keyed_name="Super User" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Super User</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="AGP Review" type="Activity Template">A2D6E6BA59F6475F890994C0ACC9CC0F</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Workflow Map Path" id="3681A3A931EF4560A2D4C288DE4808B5" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Completed</name>
+        <related_id>39E00D4B489F4003AF8E53F33E645D4D</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="AGP Review" type="Activity Template">A2D6E6BA59F6475F890994C0ACC9CC0F</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+       <Item type="Workflow Map Path" id="5EFF184F42924DAA8F045B5C9998A05A" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>AGP Declined</name>
+        <related_id>BE16838C04C1456A9A944D3F2B1880FA</related_id>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="AGP Review" type="Activity Template">A2D6E6BA59F6475F890994C0ACC9CC0F</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="POC_Workflow_Voting" type="Workflow Map">DF77386DAE93440DBDD9D0BD86431430</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Completed" type="Activity Template">
+     <Item type="Activity Template" id="39E00D4B489F4003AF8E53F33E645D4D" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>684</x>
+      <y>70</y>
+      <name>Completed</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="DBFA28783344449FBE653C7097357E37" action="add">
+        <related_id keyed_name="Super User" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Super User</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Completed" type="Activity Template">39E00D4B489F4003AF8E53F33E645D4D</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Workflow Map Path" id="3380216FEF8A40CEA84A1FCF64E42737" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Closed</name>
+        <related_id>0DD0751B2A24449283B0B439332E895C</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Completed" type="Activity Template">39E00D4B489F4003AF8E53F33E645D4D</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+       <Item type="Workflow Map Path" id="922C425F9C314BCF879087FFC527A2F2" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>On Hold</name>
+        <related_id>9776623EE8944F7D8BA683DE855FCBBB</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Completed" type="Activity Template">39E00D4B489F4003AF8E53F33E645D4D</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+       <Item type="Workflow Map Path" id="13CD0E2F463D498792AEA4BB20C7325D" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Archived</name>
+        <related_id>8465530C4E874EBCB5C746590855CC61</related_id>
+        <sort_order>384</sort_order>
+        <source_id keyed_name="Completed" type="Activity Template">39E00D4B489F4003AF8E53F33E645D4D</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="POC_Workflow_Voting" type="Workflow Map">DF77386DAE93440DBDD9D0BD86431430</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Archived" type="Activity Template">
+     <Item type="Activity Template" id="8465530C4E874EBCB5C746590855CC61" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>1</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>495</x>
+      <y>197</y>
+      <name>Archived</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="5F20764C41C64E3F84125063DF489A1A" action="add">
+        <related_id keyed_name="Super User" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Super User</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Archived" type="Activity Template">8465530C4E874EBCB5C746590855CC61</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="POC_Workflow_Voting" type="Workflow Map">DF77386DAE93440DBDD9D0BD86431430</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="On Hold" type="Activity Template">
+     <Item type="Activity Template" id="9776623EE8944F7D8BA683DE855FCBBB" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>501</x>
+      <y>278</y>
+      <name>On Hold</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="D4BB40C75AFA4878A417DDA355FB5417" action="add">
+        <related_id keyed_name="Super User" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Super User</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="On Hold" type="Activity Template">9776623EE8944F7D8BA683DE855FCBBB</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Workflow Map Path" id="C87A7C3AB8564052BE4C781B357656C4" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Completed</name>
+        <related_id>39E00D4B489F4003AF8E53F33E645D4D</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="On Hold" type="Activity Template">9776623EE8944F7D8BA683DE855FCBBB</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="POC_Workflow_Voting" type="Workflow Map">DF77386DAE93440DBDD9D0BD86431430</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="AGP Declined" type="Activity Template">
+     <Item type="Activity Template" id="BE16838C04C1456A9A944D3F2B1880FA" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>489</x>
+      <y>2</y>
+      <name>AGP Declined</name>
+     </Item>
+    </related_id>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="POC_Workflow_Voting" type="Workflow Map">DF77386DAE93440DBDD9D0BD86431430</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

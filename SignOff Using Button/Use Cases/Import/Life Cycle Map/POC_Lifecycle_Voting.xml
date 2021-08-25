@@ -1,0 +1,232 @@
+﻿<AML>
+ <Item type="Life Cycle Map" id="9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E" action="add">
+  <start_state keyed_name="Draft" type="Life Cycle State">3AFA98A324064531B6C0CB92583A16F9</start_state>
+  <name>POC_Lifecycle_Voting</name>
+  <Relationships>
+   <Item type="Life Cycle State" id="A663E4F2B62F472FB1A99BE1D7B9A403" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <x>310</x>
+    <y>25</y>
+    <name>AGP Declined</name>
+   </Item>
+   <Item type="Life Cycle State" id="9CD5DA971C1F4BDAA41BF8D67C118E36" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <x>310</x>
+    <y>121</y>
+    <name>AGP Review</name>
+   </Item>
+   <Item type="Life Cycle State" id="72E8CC053D644DE3A588A57C1A706B01" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <x>310</x>
+    <y>207</y>
+    <name>Archived</name>
+   </Item>
+   <Item type="Life Cycle State" id="1137B055E2C648FE9416B83B66E4DB07" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <x>592</x>
+    <y>123</y>
+    <name>Closed</name>
+   </Item>
+   <Item type="Life Cycle State" id="27702B3A00CF4FCBB6A0AEAA25A77569" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <x>444</x>
+    <y>122</y>
+    <name>Completed</name>
+   </Item>
+   <Item type="Life Cycle State" id="3AFA98A324064531B6C0CB92583A16F9" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <x>34</x>
+    <y>118</y>
+    <name>Draft</name>
+   </Item>
+   <Item type="Life Cycle State" id="C9953CE6BD364ACE87906265E0595BE7" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <x>311</x>
+    <y>284</y>
+    <name>On Hold</name>
+   </Item>
+   <Item type="Life Cycle State" id="6979F6557F5E494998F730E3C71CD374" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <x>170</x>
+    <y>120</y>
+    <name>Procurement Review</name>
+   </Item>
+   <Item type="Life Cycle Transition" id="32E256B2C1F44F0AACA7DCCC20037AB7" action="add">
+    <from_state keyed_name="Closed" type="Life Cycle State">1137B055E2C648FE9416B83B66E4DB07</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="Archived" type="Life Cycle State">72E8CC053D644DE3A588A57C1A706B01</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="A0A5ED0AABE8498B8DE5FC6A847F0069" action="add">
+    <from_state keyed_name="Closed" type="Life Cycle State">1137B055E2C648FE9416B83B66E4DB07</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="Completed" type="Life Cycle State">27702B3A00CF4FCBB6A0AEAA25A77569</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="35B232148CE34EF78D49E96697701506" action="add">
+    <from_state keyed_name="Completed" type="Life Cycle State">27702B3A00CF4FCBB6A0AEAA25A77569</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="On Hold" type="Life Cycle State">C9953CE6BD364ACE87906265E0595BE7</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="792A4FFB6A9E4C478A5A859B4401A3A0" action="add">
+    <from_state keyed_name="Completed" type="Life Cycle State">27702B3A00CF4FCBB6A0AEAA25A77569</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="Closed" type="Life Cycle State">1137B055E2C648FE9416B83B66E4DB07</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="B189E83EA24D47A5B5224D8BDB78FCD7" action="add">
+    <from_state keyed_name="Completed" type="Life Cycle State">27702B3A00CF4FCBB6A0AEAA25A77569</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="Archived" type="Life Cycle State">72E8CC053D644DE3A588A57C1A706B01</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="064D4BA88DE04220B4FB6C163B9A2339" action="add">
+    <from_state keyed_name="Draft" type="Life Cycle State">3AFA98A324064531B6C0CB92583A16F9</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="On Hold" type="Life Cycle State">C9953CE6BD364ACE87906265E0595BE7</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="A37D32E40E814B65A894EE95701E6FE6" action="add">
+    <from_state keyed_name="Draft" type="Life Cycle State">3AFA98A324064531B6C0CB92583A16F9</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="Archived" type="Life Cycle State">72E8CC053D644DE3A588A57C1A706B01</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="DCA11A358BD847239947213379F7647C" action="add">
+    <from_state keyed_name="Draft" type="Life Cycle State">3AFA98A324064531B6C0CB92583A16F9</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="Procurement Review" type="Life Cycle State">6979F6557F5E494998F730E3C71CD374</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="EFD7C58C80184AF08133ADF58B694EDD" action="add">
+    <from_state keyed_name="Procurement Review" type="Life Cycle State">6979F6557F5E494998F730E3C71CD374</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="AGP Review" type="Life Cycle State">9CD5DA971C1F4BDAA41BF8D67C118E36</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="28F1080ADD3E45FC9DC0908ECE0AE428" action="add">
+    <from_state keyed_name="AGP Review" type="Life Cycle State">9CD5DA971C1F4BDAA41BF8D67C118E36</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="AGP Declined" type="Life Cycle State">A663E4F2B62F472FB1A99BE1D7B9A403</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="A88824D1ED9640D7B72742F04E3C9DF2" action="add">
+    <from_state keyed_name="AGP Review" type="Life Cycle State">9CD5DA971C1F4BDAA41BF8D67C118E36</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="Completed" type="Life Cycle State">27702B3A00CF4FCBB6A0AEAA25A77569</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="336975E9D7374CD9BEF56991BA30B61F" action="add">
+    <from_state keyed_name="On Hold" type="Life Cycle State">C9953CE6BD364ACE87906265E0595BE7</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Super User" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Super User</name>
+     </Item>
+    </role>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="POC_Lifecycle_Voting" type="Life Cycle Map">9AC9C0E7EFF24A1B9D9BD4AE6BB2EF0E</source_id>
+    <to_state keyed_name="Completed" type="Life Cycle State">27702B3A00CF4FCBB6A0AEAA25A77569</to_state>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>
